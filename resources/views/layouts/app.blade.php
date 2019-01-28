@@ -70,10 +70,21 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            @if (Session::has('flash_notification.message'))
+                <div class="alert alert-{{ Session::get('flash_notification.level') }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
+                    {{ Session::get('flash_notification.message') }}
+                </div>
+            @endif
+        </div>
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 </body>
+<script>
+    $('#flash-overlay-modal').modal();
+</script>
 </html>

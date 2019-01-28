@@ -12,6 +12,7 @@ class EmailController extends Controller
         $user = User::where('confirmation_token', $token)->first();
         if (is_null($user)) {
             //错误提示
+            flash('邮箱验证失败', 'danger');
             return redirect('/');
         }
 
