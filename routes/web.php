@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function(){
-    echo 'hello world';
+    return view('welcome');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('email/verify', 'EmailController@verify');
